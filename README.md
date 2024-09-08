@@ -2,6 +2,8 @@
 
 This project is a **Flask-based Authentication API** built using the **MVC (Model-View-Controller)** architecture. The API uses **JWT (JSON Web Tokens)** for authentication and **MongoDB** for storing user data (email and password). The project also includes a **Nginx** server for load balancing and proxying requests, and is orchestrated with **Docker Compose**.
 
+![alt text](image-1.png)
+
 ## Table of Contents
 1. [Project Structure](#project-structure)
 2. [Technologies Used](#technologies-used)
