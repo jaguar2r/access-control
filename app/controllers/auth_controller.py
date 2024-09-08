@@ -1,5 +1,6 @@
 from flask import Blueprint, request, jsonify, current_app
 from werkzeug.security import generate_password_hash, check_password_hash
+from app.config.config import Config
 from app.models.user import User
 from app.views.auth_view import render_success, render_error
 import jwt
@@ -40,6 +41,6 @@ def login():
     token = jwt.encode({
         'user_id': str(user['_id']),
         'exp': datetime.datetime.now(datetime.timezone.utc) + datetime.timedelta(minutes=15)
-        }, current_app.config['SECRET_KEY'], algorithm='HS256')
+        }, Config.SECRET_KEY, algorithm='HS256')
 
     return render_success({'token': token}, 200)
