@@ -216,3 +216,9 @@ curl -X GET http://localhost/auth/protected \
 - **Connection Issues**: Ensure the application is running and accessible on the correct port.
 - **JWT Token Expired**: Login again to get a new token.
 - **Invalid Token**: Verify that the token is correctly passed in the `Authorization` header with the `Bearer` prefix.
+
+### TODO
+
+- Sanitize data before performing select/insert operations on the database.
+- Add API documentation/specification.
+- Translate response messages from Portuguese to English.
