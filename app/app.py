@@ -1,17 +1,19 @@
-from flask import Flask
+from flask import Flask, jsonify
 from app.config.config import Config
-from pymongo import MongoClient
-from app.controllers.auth_controller import auth_bp
+from app.routes.user_routes import user_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
 
-# Conexão com MongoDB
-client = MongoClient(app.config["MONGO_URI"])
-db = client.auth_db
+app.register_blueprint(user_bp)
 
-# Registrando o Blueprint
-app.register_blueprint(auth_bp, url_prefix='/auth')
+@app.route('/', methods=['GET'])
+def hello_world():
+    return jsonify({
+        'message': 'Request was successful.',
+        'status': 'success',
+        'code': 200
+    }), 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
